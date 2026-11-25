@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>Meja AR — GARBA</title>
+<meta name="theme-color" content="#0ea5e9">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  body.imersif{background:radial-gradient(ellipse at 50% 35%,#e0f2fe 0%,#bae6fd 45%,#38bdf8 100%)}
+  #cam{position:fixed;inset:0;width:100vw;height:100vh;object-fit:cover;z-index:0;display:none}
+  a-scene{position:fixed!important;inset:0;z-index:1}
+  .model-tab{position:absolute;top:60px;left:50%;transform:translateX(-50%);display:flex;gap:6px;background:rgba(255,255,255,.9);padding:5px;border-radius:999px;border:1px solid var(--langit-200);backdrop-filter:blur(8px);max-width:calc(100vw - 20px);overflow-x:auto;scrollbar-width:none}
+  .model-tab button{border:0;background:transparent;border-radius:999px;padding:8px 12px;font-weight:700;font-size:13.5px;color:var(--langit-800);white-space:nowrap}
+  .model-tab button.aktif{background:linear-gradient(135deg,#0284c7,#db2777);color:#fff}
+  .aksi-ar{position:absolute;bottom:16px;left:12px;right:110px;display:flex;gap:6px;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;align-items:center}
+  .aksi-ar .pill{border:1px solid var(--langit-200);cursor:pointer;white-space:nowrap}
+  .aksi-ar input[type=range]{min-width:150px;accent-color:#db2777}
+  #info{top:auto;bottom:66px;left:12px;max-height:36vh}
+  @media (min-width:900px){#info{top:112px;bottom:auto;max-height:calc(100vh - 200px)}}
+  .skala{position:absolute;right:14px;top:120px;display:flex;flex-direction:column;gap:6px}
+  .skala button{width:42px;height:42px;border-radius:14px;border:1px solid var(--langit-200);background:rgba(255,255,255,.92);font-size:18px;font-weight:800;color:var(--langit-700)}
+  @media (max-width:640px){body.imersif .fab{top:auto;bottom:62px}}
+</style>
+<script src="aframe.min.js"></script>
+</head>
+<body class="imersif">
+<video id="cam" playsinline muted autoplay></video>
+
+<div class="layar-mulai" id="mulai">
+  <div class="isi">
+    <div style="font-size:54px">📱👶🌷</div>
+    <h1>Meja AR Garba</h1>
+    <p style="color:#335f7d;margin:0 0 12px">Hadirkan model fisiologi di ruang nyata Anda: <b>Grafik Hormon 3D</b>, <b>Mekanisme Persalinan</b> (panggul & kepala janin), <b>Involusi Uterus</b>, dan <b>Refleks Menyusui</b>. Ketuk model untuk menjalankan tahap demi tahap.</p>
+    <div style="display:grid;gap:8px">
+      <button class="btn btn-primer" id="b-xr" style="display:none">✨ AR Penuh (WebXR) — letakkan di lantai/meja</button>
+      <button class="btn btn-primer" id="b-cam">📷 AR Kamera — model melayang di ruangan Anda</button>
+      <button class="btn btn-putih" id="b-3d">🧊 Mode 3D tanpa kamera</button>
+    </div>
+    <p style="font-size:12.5px;color:#335f7d;margin:12px 0 0">Tips: gunakan Chrome di Android untuk AR Penuh. Seret untuk memutar model, cubit atau tombol ＋/－ untuk memperbesar.</p>
+    <p style="margin:8px 0 0"><a href="index.html">← Kembali ke beranda</a> · <a href="materi.html">Materi & soal</a></p>
+  </div>
+</div>
+
+<a-scene id="scene" embedded renderer="antialias: true; alpha: true; colorManagement: true" background="transparent: true" vr-mode-ui="enabled: false"
+  cursor="rayOrigin: mouse" raycaster="objects: .klik; far: 20"
+  webxr="optionalFeatures: hit-test, dom-overlay; overlayElement: #hud" ar-hit-test="target: #akar; type: footprint"
+  device-orientation-permission-ui="enabled: true" loading-screen="enabled: false">
+  <a-entity light="type: hemisphere; color: #ffffff; groundColor: #fbcfe8; intensity: .7"></a-entity>
+  <a-entity light="type: directional; intensity: 0.55" position="2 4 3"></a-entity>
+  <a-entity id="kamera" camera position="0 1.6 0" look-controls="mouseEnabled: false; touchEnabled: false; magicWindowTrackingEnabled: true"></a-entity>
+  <a-entity id="akar" position="0 1.2 -1.6">
+    <a-entity id="putar">
+      <a-entity id="m-siklus" class="klik"></a-entity>
+      <a-entity id="m-persalinan" class="klik" visible="false"></a-entity>
+      <a-entity id="m-involusi" class="klik" visible="false"></a-entity>
+      <a-entity id="m-laktasi" class="klik" visible="false"></a-entity>
+    </a-entity>
+  </a-entity>
+</a-scene>
+
+<div class="hud" id="hud">
+  <div class="hud-top">
+    <a class="pill" href="index.html">← Beranda</a>
+    <span class="pill biru">📱 Meja AR</span>
+    <a class="pill" href="index.html?vr=1">🥽 Taman VR</a>
+  </div>
+  <div class="model-tab" id="tab">
+    <button data-m="siklus" class="aktif">🌙 Hormon Siklus</button>
+    <button data-m="persalinan">👶 Mekanisme Persalinan</button>
+    <button data-m="involusi">🌷 Involusi Uterus</button>
+    <button data-m="laktasi">🍼 Refleks Menyusui</button>
+  </div>
+  <div class="skala"><button id="zin" aria-label="Perbesar">＋</button><button id="zout" aria-label="Perkecil">－</button><button id="rst" aria-label="Atur ulang">⟲</button></div>
+  <div class="info-panel" id="info"></div>
+  <div class="aksi-ar" id="aksi"></div>
+</div>
+
+<script src="data.js"></script>
+<script src="ai.js"></script>
+<script src="models.js"></script>
+<script src="ar.js"></script>
+</body>
+</html>

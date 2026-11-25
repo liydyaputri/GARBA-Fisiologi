@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Materi & Latihan — GARBA</title>
+<meta name="description" content="Media pembelajaran VR + AR + Generative AI untuk MK Fisiologi, topik Fisiologi Reproduksi & Maternal. Prodi Sarjana Kebidanan & Profesi Bidan, Universitas Sunan Gresik.">
+<meta name="theme-color" content="#0ea5e9">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="nav">
+  <div class="wrap">
+    <a class="logo" href="index.html"><span class="logo-mark" style="background:linear-gradient(135deg,#38bdf8,#db2777)">🌸</span><span>GARBA<small>Fisiologi Reproduksi & Maternal</small></span></a>
+    <button class="menu-btn" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+    <div class="nav-links">
+      <a href="index.html">🏠 Beranda 3D</a>
+      <a href="#imersif">Ruang Imersif</a>
+      <a href="#lab">Lab Siklus</a>
+      <a href="#topik">7 Topik</a>
+      <a href="#mitos">Mitos/Fakta</a>
+      <a href="#evaluasi">Evaluasi</a>
+      <a href="#" id="nav-ai">⚙️ AI</a>
+      <a class="cta" href="index.html?vr=1">Masuk Taman VR</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="awan" style="width:180px;height:46px;top:70px;animation-duration:55s"></div>
+  <div class="awan" style="width:120px;height:32px;top:180px;animation-duration:38s;animation-delay:-20s"></div>
+  <div class="awan" style="width:220px;height:54px;top:30px;animation-duration:70s;animation-delay:-45s"></div>
+  <div class="wrap">
+    <div>
+      <span class="badge">🩺 Fisiologi (SB1L33) · Minggu 12–15 · S1 Kebidanan</span>
+      <h1>Menyelami <span class="grad-mawar">perjalanan kehidupan</span><br>dari siklus hingga menyusui</h1>
+      <p class="lead">GARBA adalah laboratorium imersif <b>VR</b>, <b>AR</b>, dan <b>Generative AI</b> untuk memahami mekanisme fisiologi reproduksi dan maternal. Jelajahi taman 3D tujuh tahap kehidupan, letakkan model panggul dan rahim di meja Anda, lalu berlatih konseling bersama <b id="nama-ai-hero">Bunda Lidia</b>.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primer" href="index.html?vr=1">🥽 Masuk Taman VR</a>
+        <a class="btn btn-putih" href="ar.html">📱 Buka Meja AR</a>
+        <button class="btn btn-putih" id="hero-ai">🧕🏻 Tanya <span class="nama-ai">Bunda Lidia</span></button>
+      </div>
+      <div class="hero-meta"><span>🔬 <b>7</b> topik</span><span>🧪 Lab hormon <b>P7</b></span><span>👶 Mekanisme persalinan <b>3D</b></span><span>🌸 Kearifan lokal Jawa</span></div>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <svg viewBox="0 0 400 400" width="100%" height="100%">
+        <defs>
+          <radialGradient id="bg" cx="50%" cy="40%" r="60%"><stop offset="0" stop-color="#fff"/><stop offset=".6" stop-color="#e9d5ff"/><stop offset="1" stop-color="#f9a8d4"/></radialGradient>
+          <linearGradient id="rh" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f9a8d4"/><stop offset="1" stop-color="#db2777"/></linearGradient>
+        </defs>
+        <circle cx="200" cy="200" r="190" fill="url(#bg)"/>
+        <!-- grafik hormon mini -->
+        <g transform="translate(70 70)" fill="none" stroke-width="4" stroke-linecap="round">
+          <path d="M0 90 C40 88 70 80 110 40 C120 30 125 30 130 60 C140 75 170 50 200 60 C230 70 250 85 260 90" stroke="#ec4899"/>
+          <path d="M0 100 C90 100 110 100 118 100 C122 20 128 20 132 100 C160 100 260 100 260 100" stroke="#7c3aed"/>
+          <path d="M0 108 C120 108 140 106 160 70 C180 40 210 45 230 80 C245 100 255 106 260 108" stroke="#f59e0b"/>
+        </g>
+        <!-- rahim & janin -->
+        <g>
+          <animateTransform attributeName="transform" type="translate" values="0 0;0 -5;0 0" dur="3.5s" repeatCount="indefinite"/>
+          <ellipse cx="200" cy="270" rx="78" ry="70" fill="url(#rh)" opacity=".9"/>
+          <ellipse cx="200" cy="270" rx="58" ry="52" fill="#fdf2f8"/>
+          <circle cx="188" cy="252" r="20" fill="#fcd9bd"/>
+          <path d="M200 262 q28 6 22 34 q-6 18 -30 10 q-18 -8 -8 -30" fill="#fcd9bd"/>
+          <path d="M195 300 q10 -20 0 -40" stroke="#f472b6" stroke-width="3" fill="none"/>
+        </g>
+        <path d="M122 230 q-30 -30 -20 -60" stroke="#f472b6" stroke-width="5" fill="none"/>
+        <path d="M278 230 q30 -30 20 -60" stroke="#f472b6" stroke-width="5" fill="none"/>
+        <circle cx="100" cy="166" r="12" fill="#fbcfe8"/><circle cx="300" cy="166" r="12" fill="#fbcfe8"/>
+        <text x="200" y="372" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-weight="800" font-size="15" fill="#0369a1">Siklus · Kehamilan · Persalinan · Nifas · Laktasi</text>
+      </svg>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="seksi kawung" id="imersif">
+    <div class="wrap">
+      <div class="judul-seksi"><div><span class="eyebrow">Tiga ruang belajar</span><h2>Pilih pengalaman imersif Anda</h2><p class="sub">VR untuk menelusuri urutan peristiwa reproduksi sebagai satu perjalanan, AR untuk memanipulasi model panggul, rahim, dan hormon di ruang nyata, serta GenAI untuk analisis kasus dan latihan konseling.</p></div></div>
+      <div class="mode-grid">
+        <a class="mode vr" href="index.html?vr=1"><span class="ikon-besar">🥽</span><h3>Taman Garba VR</h3><p>Berjalan melingkari 7 stasiun: siklus, reproduksi pria, fertilisasi, adaptasi kehamilan, persalinan, nifas, dan laktasi. Sentuh model 3D untuk menjalankan mekanismenya.</p><div class="tag"><span>WebXR</span><span>Cardboard/Quest</span><span>360°</span></div></a>
+        <a class="mode ar" href="ar.html"><span class="ikon-besar">📱</span><h3>Meja AR</h3><p>Hadirkan panggul & kepala janin (gerakan kardinal), rahim yang berinvolusi, grafik hormon 3D, dan refleks menyusui di atas meja melalui kamera ponsel.</p><div class="tag"><span>Kamera</span><span>WebXR AR</span><span>Animasi</span></div></a>
+        <button class="mode ai" id="mode-ai" style="border:0;text-align:left;font:inherit"><span class="ikon-besar">🧕🏻</span><h3><span class="nama-ai">Bunda Lidia</span> · GenAI</h3><p>Bidan virtual: membuat kasus klinik fisiologis baru, menilai analisis Anda dengan rubrik, dan memerankan klien (ibu hamil, nifas, menyusui) untuk latihan konseling.</p><div class="tag"><span>Gemini</span><span>Roleplay</span><span>Rubrik</span></div></button>
+      </div>
+      <h3 style="margin:36px 0 8px;color:#0c4a6e">Alur belajar di setiap topik</h3>
+      <div class="alur">
+        <div><b>👁️</b>Pahami<br><small>mekanisme fisiologis</small></div>
+        <div><b>🧊</b>Lihat 3D<br><small>VR / AR</small></div>
+        <div><b>🏥</b>Kontekskan<br><small>contoh asuhan</small></div>
+        <div><b>🧩</b>Coba<br><small>aktivitas interaktif</small></div>
+        <div><b>🧠</b>Analisis<br><small>kasus AI + rubrik</small></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="seksi" id="lab">
+    <div class="wrap">
+      <div class="judul-seksi"><div><span class="eyebrow">Praktikum P7 digital</span><h2>Lab Pemodelan Siklus Ovarium–Menstruasi</h2><p class="sub">Geser hari dan panjang siklus. Amati FSH, LH, estrogen, progesteron, ketebalan endometrium, serta fase ovarium dan endometrium. Perhatikan bahwa fase luteal tetap ± 14 hari.</p></div></div>
+      <div class="lab">
+        <div>
+          <canvas id="grafik" width="900" height="460" aria-label="Grafik hormon siklus"></canvas>
+          <div class="legenda" style="margin-top:8px"><span><i style="background:#0ea5e9"></i>FSH</span><span><i style="background:#7c3aed"></i>LH</span><span><i style="background:#ec4899"></i>Estrogen</span><span><i style="background:#f59e0b"></i>Progesteron</span><span><i style="background:#fda4af;height:10px"></i>Endometrium</span></div>
+          <p class="sumber" style="margin:6px 0 0">Kurva = nilai relatif terhadap puncak masing-masing hormon (ilustrasi pola buku ajar, bukan nilai laboratorium).</p>
+        </div>
+        <div>
+          <label style="font-weight:700">Hari siklus: <span id="v-hari">1</span></label>
+          <input type="range" id="r-hari" min="1" max="28" value="1">
+          <label style="font-weight:700">Panjang siklus: <span id="v-L">28</span> hari</label>
+          <input type="range" id="r-L" min="21" max="35" value="28">
+          <div class="fase" id="fase">Folikular · Menstruasi</div>
+          <div class="nilai">
+            <div>Perkiraan ovulasi<b id="n-ov">hari 14</b></div>
+            <div>Endometrium<b id="n-endo">5,0 mm</b></div>
+            <div>Folikel/korpus luteum<b id="n-fol">4 mm</b></div>
+            <div>Hormon dominan<b id="n-dom">FSH</b></div>
+          </div>
+          <p id="jelas" style="font-size:14px;margin:6px 0 10px"></p>
+          <div class="aksi"><button class="btn btn-primer btn-kecil" id="putar">▶ Putar siklus</button><button class="btn btn-putih btn-kecil" id="lab-ai">🧕🏻 Jelaskan hari ini</button><a class="btn btn-putih btn-kecil" href="ar.html?m=siklus">📱 Lihat 3D di AR</a></div>
+          <div class="ai-out" id="lab-out"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="seksi kawung" id="topik">
+    <div class="wrap">
+      <div class="judul-seksi">
+        <div><span class="eyebrow">Sub-CPMK 13 & 14</span><h2>7 Topik Fisiologi Reproduksi & Maternal</h2><p class="sub" id="subcpmk"></p></div>
+        <div class="progres"><span>Progres</span><div class="bar"><i id="bar"></i></div><span id="persen">0/7</span></div>
+      </div>
+      <div class="topik-grid" id="grid"></div>
+    </div>
+  </section>
+
+  <section class="seksi" id="mitos">
+    <div class="wrap">
+      <div class="judul-seksi"><div><span class="eyebrow">Mode kelas · budaya lokal</span><h2>Mitos atau Fakta? 🤔</h2><p class="sub">Pernyataan yang sering terdengar di masyarakat Jawa seputar haid, hamil, nifas, dan menyusui. Tentukan mitos atau fakta, lalu baca dasar fisiologisnya. Cocok untuk kuis kelompok di kelas.</p></div></div>
+      <div class="mitos-kartu">
+        <div class="baris" style="justify-content:space-between"><span class="chip mawar" id="m-no">Kartu 1/9</span><span class="chip" id="m-skor">Skor 0</span></div>
+        <p class="pernyataan" id="m-teks"></p>
+        <div class="tombol-mf"><button class="btn btn-mitos" data-j="0">❌ Mitos</button><button class="btn btn-fakta" data-j="1">✅ Fakta</button></div>
+        <div class="umpan" id="m-umpan" style="text-align:left"></div>
+        <div class="aksi" style="justify-content:center"><button class="btn btn-putih btn-kecil" id="m-lanjut" style="display:none">Kartu berikutnya →</button><button class="btn btn-hantu btn-kecil" id="m-ai">🧕🏻 Bahas lebih dalam</button></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="seksi kawung" id="evaluasi">
+    <div class="wrap">
+      <div class="judul-seksi"><div><span class="eyebrow">Asesmen formatif</span><h2>Evaluasi Pemahaman</h2><p class="sub">12 soal pilihan ganda mencakup ketujuh topik. Raih skor ≥ 75 untuk mendapatkan lencana <b>Bidan Paham Fisiologi</b>.</p></div></div>
+      <div class="kuis-wrap" id="kuis"></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="kol">
+      <div><h4>🌸 GARBA</h4><p style="margin:0">Media pembelajaran imersif VR/AR + Generative AI untuk MK <b>Fisiologi</b> (SB1L33), Program Studi Sarjana Kebidanan dan Profesi Bidan, Universitas Sunan Gresik. Tahun Akademik 2026/2027.</p></div>
+      <div><h4>Pengembang</h4><p style="margin:0">Bdn. Lidia Aditama Putri, S.ST., M.K.M.<br>PJMK Fisiologi</p></div>
+      <div><h4>Rujukan utama</h4><p style="margin:0;font-size:13.5px">Hall & Hall (2025) Guyton & Hall ed. 15 · Coad dkk. (2019) · Silverthorn (2022) · Tortora & Derrickson (2020) · WHO (2018, 2022)</p></div>
+    </div>
+    <p class="disclaimer" style="background:transparent;color:#fde68a;border-color:#78350f">⚠️ Media ini untuk pembelajaran. Informasi dan simulasi AI tidak menggantikan pemeriksaan dan keputusan klinis tenaga kesehatan.</p>
+  </div>
+</footer>
+
+<div class="modal" id="modal" aria-hidden="true">
+  <div class="panel" role="dialog" aria-modal="true">
+    <div class="panel-head" style="background:linear-gradient(135deg,#0ea5e9,#0369a1 60%,#be185d)">
+      <button class="tutup" aria-label="Tutup" data-tutup>✕</button>
+      <span class="eyebrow" style="color:#e0f2fe" id="m-saka">Topik 1</span>
+      <h2 id="m-judul">Judul</h2>
+      <div class="tabs" id="m-tabs">
+        <button data-tab="pahami" class="aktif">👁️ Pahami</button>
+        <button data-tab="hayati">🌸 Kearifan Lokal</button>
+        <button data-tab="contoh">🏥 Konteks Asuhan</button>
+        <button data-tab="coba">🧩 Coba</button>
+        <button data-tab="analisis">🧠 Analisis AI</button>
+        <button data-tab="refleksi">📝 Refleksi</button>
+      </div>
+    </div>
+    <div class="panel-body" id="m-body"></div>
+  </div>
+</div>
+
+<script src="data.js"></script>
+<script src="models.js"></script>
+<script src="ai.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

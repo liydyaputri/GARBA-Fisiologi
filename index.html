@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>GARBA — Fisiologi Reproduksi & Maternal</title>
+<meta name="theme-color" content="#0ea5e9">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="aframe.min.js"></script>
+<style>
+  .sambut{position:fixed;inset:0;z-index:10000;display:grid;place-items:center;padding:16px;background:linear-gradient(135deg,rgba(14,165,233,.45),rgba(168,85,247,.35),rgba(236,72,153,.45));backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
+  .sambut.tutup{display:none}
+  .sbox{width:min(760px,100%);max-height:calc(100vh - 32px);overflow:auto;background:linear-gradient(180deg,#fff 0%,#fdf4ff 100%);border-radius:24px;border:3px solid rgba(255,255,255,.8);box-shadow:0 30px 80px rgba(88,28,135,.45);animation:muncul .35s ease}
+  .shero{position:relative;overflow:hidden;display:flex;gap:16px;align-items:flex-start;padding:24px;background:linear-gradient(120deg,#06b6d4 0%,#3b82f6 35%,#a855f7 68%,#ec4899 100%);color:#fff}
+  .shero::before,.shero::after{content:"";position:absolute;border-radius:50%;background:rgba(255,255,255,.16)}
+  .shero::before{width:220px;height:220px;right:-60px;top:-90px}.shero::after{width:120px;height:120px;right:120px;bottom:-70px;background:rgba(253,224,71,.25)}
+  .shero>*{position:relative}
+  .slogo{flex:0 0 auto;width:58px;height:58px;border-radius:18px;background:#fff;box-shadow:0 8px 20px rgba(0,0,0,.18);display:grid;place-items:center;font-size:32px}
+  .skecil{font-size:12px;font-weight:700;opacity:.9}
+  .shero h1{margin:2px 0 4px;font-size:clamp(30px,5.5vw,46px);letter-spacing:1px;text-shadow:0 3px 14px rgba(0,0,0,.2)}
+  .shero p{margin:0;font-size:15px;opacity:.95}
+  .sisi{padding:18px 24px 22px}
+  .sisi h3{margin:0 0 6px;color:#0c4a6e;font-size:16px}
+  .sisi ul{margin:0 0 14px;padding-left:20px;font-size:14px;color:#335f7d}
+  .sisi li{margin:4px 0}
+  .smode{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .smod{display:flex;flex-direction:column;align-items:flex-start;gap:2px;text-align:left;text-decoration:none;border:0;border-radius:18px;padding:14px 16px;color:#fff;font:inherit;cursor:pointer;transition:transform .15s,box-shadow .15s;position:relative;overflow:hidden}
+  .smod::after{content:"";position:absolute;width:90px;height:90px;border-radius:50%;right:-25px;top:-30px;background:rgba(255,255,255,.18)}
+  .smod:hover{transform:translateY(-3px) scale(1.01)}
+  .smod>span{font-size:28px;filter:drop-shadow(0 2px 4px rgba(0,0,0,.2))}
+  .smod b{font-size:16px}
+  .smod small{color:rgba(255,255,255,.92);font-size:12.5px}
+  .m1{background:linear-gradient(135deg,#22d3ee,#2563eb);box-shadow:0 12px 26px -10px #2563eb}
+  .m2{background:linear-gradient(135deg,#f472b6,#db2777);box-shadow:0 12px 26px -10px #db2777}
+  .m3{background:linear-gradient(135deg,#fbbf24,#f97316);box-shadow:0 12px 26px -10px #f97316}
+  .m4{background:linear-gradient(135deg,#a78bfa,#7c3aed);box-shadow:0 12px 26px -10px #7c3aed}
+  .sisi h3{color:#7c3aed!important}
+  .sisi .chip{background:linear-gradient(135deg,#fde68a,#fbcfe8);color:#9d174d}
+  .kontrol{margin-top:14px;font-size:12.5px;color:#4c1d95;background:linear-gradient(135deg,#e0f2fe,#f3e8ff,#fce7f3);border:0;border-radius:12px;padding:10px 12px}
+  @media (max-width:520px){.shero{flex-direction:column;gap:8px;padding:16px}.slogo{width:44px;height:44px;font-size:24px}.shero p{font-size:14px}.sisi{padding:14px}.sisi ul{font-size:13px}.smod{padding:10px}.smod>span{font-size:22px}.smod b{font-size:14px}.smod small{font-size:11.5px}}
+  body.sambut-buka .fab{display:none}
+</style>
+</head>
+<body class="imersif sambut-buka">
+
+<div class="sambut" id="mulai">
+  <div class="sbox" role="dialog" aria-modal="true" aria-labelledby="judul-sambut">
+    <div class="shero">
+      <div class="slogo">🌸</div>
+      <div>
+        <span class="skecil">Fisiologi (SB1L33) · S1 Kebidanan & Profesi Bidan · Universitas Sunan Gresik</span>
+        <h1 id="judul-sambut">GARBA</h1>
+        <p>Laboratorium Imersif Fisiologi Reproduksi & Maternal — jelajahi perjalanan kehidupan dari siklus haid hingga menyusui dalam VR, AR, dan bersama asisten AI <b class="nama-ai">Bunda Lidia</b>.</p>
+      </div>
+    </div>
+    <div class="sisi">
+      <h3>🎯 Tujuan pembelajaran</h3>
+      <ul>
+        <li>Menjelaskan fisiologi reproduksi wanita dan pria serta adaptasi fisiologis kehamilan, persalinan, nifas, dan laktasi <span class="chip">Sub-CPMK 13</span></li>
+        <li>Menganalisis model hormonal dan data simulasi perubahan fisiologis reproduksi dan maternal sebagai dasar asuhan kebidanan <span class="chip">Sub-CPMK 14</span></li>
+      </ul>
+      <div class="smode">
+        <button class="smod m1" id="masuk"><span>🥽</span><b>Jelajahi Taman VR</b><small>7 stasiun 3D</small></button>
+        <a class="smod m2" href="ar.html"><span>📱</span><b>Meja AR</b><small>persalinan, rahim, hormon</small></a>
+        <a class="smod m3" href="materi.html"><span>📚</span><b>Materi & Latihan Soal</b><small>7 topik, lab siklus, kuis</small></a>
+        <button class="smod m4" id="b-chat"><span>🧕🏻</span><b>Tanya <span class="nama-ai">Bunda Lidia</span></b><small>AI & latihan konseling</small></button>
+      </div>
+      <div class="kontrol">
+        <b>Cara menjelajah:</b> 💻 seret mouse + <b>W A S D</b> · 📱 gerakkan ponsel, ketuk model, tombol <b>1–7</b> · 🥽 tekan ikon VR, tatap model ±1,5 detik. Setiap ketukan pada model menjalankan tahap mekanisme berikutnya.
+      </div>
+    </div>
+  </div>
+</div>
+
+<a-scene id="scene" renderer="antialias: true; colorManagement: true" cursor="rayOrigin: mouse" raycaster="objects: .klik; far: 40" loading-screen="dotsColor: #db2777; backgroundColor: #e0f2fe" vr-mode-ui="enabled: true" device-orientation-permission-ui="enabled: true">
+  <a-entity id="langit" geometry="primitive: sphere; radius: 400" material="shader: flat; side: back"></a-entity>
+  <a-entity light="type: hemisphere; color: #e0f2fe; groundColor: #86efac; intensity: 0.6"></a-entity>
+  <a-entity light="type: directional; color: #fff8e7; intensity: 0.55" position="6 12 8"></a-entity>
+    <a-circle radius="120" rotation="-90 0 0" color="#4ade80"></a-circle>
+  <a-ring radius-inner="5.2" radius-outer="7.6" rotation="-90 0 0" position="0 0.01 0" color="#d6c2a1"></a-ring>
+  <a-circle radius="2.4" rotation="-90 0 0" position="0 0.015 0" color="#f472b6"></a-circle>
+  <a-entity id="pohon"></a-entity>
+  <a-entity id="gazebo"></a-entity>
+  <a-entity id="avatar" position="0 0 0" class="klik"></a-entity>
+  <a-entity id="stasiun"></a-entity>
+  <a-entity id="rig" position="0 0 12">
+    <a-entity id="kamera" camera position="0 1.6 0" look-controls="pointerLockEnabled: false; magicWindowTrackingEnabled: true" wasd-controls="acceleration: 22"></a-entity>
+    <a-entity laser-controls="hand: right" raycaster="objects: .klik; far: 30; lineColor: #f472b6"></a-entity>
+  </a-entity>
+</a-scene>
+
+<div class="hud">
+  <div class="hud-top">
+    <button class="pill" id="b-menu">☰ Menu</button>
+    <a class="pill" href="materi.html">📚 Materi & Soal</a>
+    <span class="pill biru">🌸 Taman Garba</span>
+    <button class="pill" id="b-detak">💓 Suara detak: mati</button>
+    <a class="pill" href="ar.html">📱 Meja AR</a>
+  </div>
+  <div class="petunjuk">Ketuk model 3D untuk menjalankan mekanisme tahap demi tahap · Ketuk Bunda Lidia di tengah taman untuk bertanya</div>
+  <div class="info-panel" id="info"></div>
+  <div class="hud-bawah" id="nav"></div>
+</div>
+
+<script src="data.js"></script>
+<script src="ai.js"></script>
+<script src="models.js"></script>
+<script src="vr.js"></script>
+</body>
+</html>
